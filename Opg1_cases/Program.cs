@@ -19,7 +19,7 @@ if(c_key == ConsoleKey.B)
 
     Console.Write("Skriv navnet på danser 1:");
     name = Console.ReadLine();
-    Console.Write("Skriv hvor mange point danser 1: ");
+    Console.Write(name.Length + "Skriv hvor mange point danser 1: ");
     points = int.Parse(Console.ReadLine());
     Opg1_cases.Dancer dancer1 = new Opg1_cases.Dancer(name, points);
 
