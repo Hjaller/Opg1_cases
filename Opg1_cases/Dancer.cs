@@ -16,6 +16,10 @@ namespace Opg1_cases
             this.name = name;
         }
 
-        public static int operator +(Dancer dancer1, Dancer dancer2) => (int)(dancer1.points + dancer2.points);
+        public static int operator +(Dancer dancer1, Dancer dancer2)
+        {
+            return (int)(dancer1.points + dancer2.points); 
+
+        }
     }
 }
