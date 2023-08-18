@@ -8,12 +8,17 @@ namespace Opg1_cases
 {
     internal class Football
     {
+
         private const string _goal = "mål";
         public Football()
         {
             return;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="passes"></param>
+        /// <returns></returns>
         private string HowHappyAreWeAboutThePasses(int passes)
         {
             if (passes < 0)
@@ -31,7 +36,12 @@ namespace Opg1_cases
                 return str.TrimEnd();
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="goal"></param>
+        /// <param name="passes"></param>
+        /// <returns></returns>
         public string WeCheerIfGoalOrPasses(string goal, int passes)
         {
             if (goal.ToLower() == _goal)
@@ -40,7 +50,11 @@ namespace Opg1_cases
             else
                 return HowHappyAreWeAboutThePasses(passes);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="goal"></param>
+        /// <returns></returns>
         private string WeCheerIfGoal(string goal)
         {
             if (goal.ToLower() == _goal)

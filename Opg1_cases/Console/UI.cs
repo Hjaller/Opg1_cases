@@ -8,7 +8,6 @@ namespace Opg1_cases
 {
     internal class UI
     {
-
         Opg1_cases.Football football = new Opg1_cases.Football();
         string goal, name, username, pass = "";
         int passes, points = 0;
