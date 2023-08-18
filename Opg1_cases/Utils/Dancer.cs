@@ -10,6 +10,8 @@ namespace Opg1_cases
     {
         public string? name { get; set; }
         public int? points { get; set; }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -20,6 +22,8 @@ namespace Opg1_cases
             this.points = points;
             this.name = name;
         }
+
+
         /// <summary>
         /// 
         /// </summary>
