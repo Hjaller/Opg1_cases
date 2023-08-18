@@ -76,11 +76,6 @@ namespace Opg1_cases
                 }
                 
             }
-            /*foreach (User k in users)
-            {
-                if (k.UserName == user.UserName) users.r(k);
-            }*/
-            Console.WriteLine(users.Count);
 
             var json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(@"C:\Users\hjalet\Desktop\data.json", json);
