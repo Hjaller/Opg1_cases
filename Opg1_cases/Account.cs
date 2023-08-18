@@ -77,6 +77,7 @@ namespace Opg1_cases
                 
             }
 
+
             var json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(@"C:\Users\hjalet\Desktop\data.json", json);
 

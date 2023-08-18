@@ -14,10 +14,7 @@ do
     Console.Write("Pass: ");
     pass = Console.ReadLine();
     user = account.GetUser(username, pass);
-    /*Console.Write("Tryk A for fodbold, tryk B for danse");
-    c_key = Console.ReadKey().Key;
-    Console.Clear();
-} while (c_key != ConsoleKey.A && c_key != ConsoleKey.B);*/
+
 
 
 
@@ -55,6 +52,8 @@ usedPass.Add(pass);
 newUser = new Opg1_cases.User(user.UserName, pass, usedPass);
 account.UpdateUserInFile(user, newUser);
 Console.WriteLine("Password ændret!");
+
+user = newUser;
 
 
 if(c_key == ConsoleKey.B)
