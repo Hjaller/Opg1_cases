@@ -1,16 +1,28 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Opg1_cases.Football football = new Opg1_cases.Football();
 bool close = false;
-string goal = "";
+string goal, username, pass = "";
 int passes = 0;
 ConsoleKey c_key;
+Opg1_cases.Account account = new Opg1_cases.Account();
 do
 {
-    Console.Write("Tryk A for fodbold, tryk B for danse");
+    Console.WriteLine("For at bruge programmets funktioner, bedes du logge ind.");
+    Console.Write("Username");
+    username = Console.ReadLine();
+    Console.Write("Pass:");
+    pass = Console.ReadLine();
+    account.createUser(username, pass);
+
+    c_key = Console.ReadKey().Key;
+    /*Console.Write("Tryk A for fodbold, tryk B for danse");
     c_key = Console.ReadKey().Key;
     Console.Clear();
-} while (c_key != ConsoleKey.A && c_key != ConsoleKey.B);
+} while (c_key != ConsoleKey.A && c_key != ConsoleKey.B);*/
 
+
+
+} while (account.createUser(username, pass));
 if(c_key == ConsoleKey.B)
 {
     string name = "";
