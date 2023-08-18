@@ -7,16 +7,6 @@ using Newtonsoft.Json;
 
 namespace Opg1_cases
 {
-
-    /* To do
-     * Metode til at få brugernavn
-     *
-     * 
-     * 
-     * 
-     * 
-     *
-     */
     internal class Account
     {
         /// <summary>
