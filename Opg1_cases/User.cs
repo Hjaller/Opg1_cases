@@ -11,15 +11,25 @@ namespace Opg1_cases
         public string UserName { get; set; }
         public string Password { get; set; }
         public List<string> UsedPassword { get; set; }
-        public User(string username, string password)
+        public User(string username, string password, List<string>? usedPass)
         {
             UserName = username;
             Password = password;
 
-            List<string> passwords = new List<string>();
-            passwords.Add(password);
-            UsedPassword = passwords;
+            if(usedPass == null)
+            {
+                List<string> passwords = new List<string>();
+                passwords.Add(password);
+                UsedPassword = passwords;
+            } else
+            {
+                UsedPassword = usedPass;
+            }
+
 
         }
+
+
+
     }
 }

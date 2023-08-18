@@ -23,7 +23,7 @@ namespace Opg1_cases
         public bool createUser(string username, string pass)
         {
 
-            User user = new User(username, pass);
+            User user = new User(username, pass, null);
             if (PassStrong(user) && !UserNameExist(user))
             {
                 SaveUser(user);
@@ -42,10 +42,21 @@ namespace Opg1_cases
             return false;
         }
 
+        public User? GetUser(string username, string pass)
+        {
+            List<User> users = GetUsersFromFile();
+            foreach (User user in users)
+            {
+
+                if (username == user.UserName && pass == user.Password) return user;
+            }
+            return null;
+        }
+
         public bool PassStrong(User user)
         {
             string pass = user.Password;
-            if (pass.Length <= 12) return false;
+            if (pass.Length < 12) return false;
             if (char.IsDigit(pass[0])) return false;
             if (char.IsDigit(pass[pass.Length-1])) return false;
             if (pass.Contains(" ")) return false;
@@ -53,10 +64,26 @@ namespace Opg1_cases
             return true;
         }
 
+
         public void UpdateUserInFile(User user, User newUser)
         {
             List<User> users = GetUsersFromFile();
-            users.Remove(user);
+            for (int i = 0; i < users.Count; i++)
+            {
+                if (users[i].UserName == newUser.UserName)
+                {
+                    users.RemoveAt(i);
+                }
+                
+            }
+            /*foreach (User k in users)
+            {
+                if (k.UserName == user.UserName) users.r(k);
+            }*/
+            Console.WriteLine(users.Count);
+
+            var json = JsonConvert.SerializeObject(users, Formatting.Indented);
+            File.WriteAllText(@"C:\Users\hjalet\Desktop\data.json", json);
 
             SaveUser(newUser); 
 
@@ -64,7 +91,10 @@ namespace Opg1_cases
 
         public bool PassUsedBefore(User user, string newPass)
         {
-            if(user.UsedPassword.Contains(newPass)) return true;
+            foreach(string k in user.UsedPassword)
+            {
+                if(k.ToLower() == newPass.ToLower()) return true;
+            }
             return false;
         }
 

@@ -26,7 +26,7 @@ namespace Opg1_cases
             {
                 var str = string.Empty;
 
-                for (int i = 0; i < passes; i++) str += "Huh!";
+                for (int i = 0; i < passes; i++) str += "Huh! ";
 
                 return str.TrimEnd();
             }

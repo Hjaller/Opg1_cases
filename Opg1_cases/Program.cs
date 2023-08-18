@@ -5,16 +5,15 @@ string goal, username, pass = "";
 int passes = 0;
 ConsoleKey c_key;
 Opg1_cases.Account account = new Opg1_cases.Account();
+Opg1_cases.User user, newUser;
 do
 {
     Console.WriteLine("For at bruge programmets funktioner, bedes du logge ind.");
-    Console.Write("Username");
+    Console.Write("Username: ");
     username = Console.ReadLine();
-    Console.Write("Pass:");
+    Console.Write("Pass: ");
     pass = Console.ReadLine();
-    account.createUser(username, pass);
-
-    c_key = Console.ReadKey().Key;
+    user = account.GetUser(username, pass);
     /*Console.Write("Tryk A for fodbold, tryk B for danse");
     c_key = Console.ReadKey().Key;
     Console.Clear();
@@ -22,7 +21,42 @@ do
 
 
 
-} while (account.createUser(username, pass));
+} while (user == null);
+
+
+
+do
+{
+
+    Console.WriteLine("Velkommen tilbage " + user.UserName);
+    Console.WriteLine("Hvis du ønsker at opdatere dit password, tryk O");
+    c_key = Console.ReadKey().Key;
+
+} while (c_key != ConsoleKey.A && c_key != ConsoleKey.B && c_key != ConsoleKey.O);
+
+
+if (c_key == ConsoleKey.O)
+{ 
+    do
+    {
+
+        Console.Clear();
+        Console.WriteLine("Indtast det du ønsker at ændre dit password til: ");
+        pass = Console.ReadLine();
+
+        newUser = new Opg1_cases.User(user.UserName, pass, user.UsedPassword);
+
+    } while (account.PassUsedBefore(user, pass) || !account.PassStrong(newUser));
+}
+
+
+List<string> usedPass = user.UsedPassword;
+usedPass.Add(pass);
+newUser = new Opg1_cases.User(user.UserName, pass, usedPass);
+account.UpdateUserInFile(user, newUser);
+Console.WriteLine("Password ændret!");
+
+
 if(c_key == ConsoleKey.B)
 {
     string name = "";
