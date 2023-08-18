@@ -9,6 +9,12 @@ namespace Opg1_cases
 {
     internal class Account
     {
+
+        /* Todo 
+         * Lave roller
+         * Gør det muligt, at oprette brugere, hvis man er administrator
+         * Gør det muligt for administartor at give roller
+         */
         /// <summary>
         /// 
         /// </summary>
@@ -110,6 +116,15 @@ namespace Opg1_cases
                 if(k.ToLower() == newPass.ToLower()) return true;
             }
             return false;
+        }
+
+        public List<String>? GetRoles(User user)
+        {
+            foreach (string k in user.UsedPassword)
+            {
+              
+            }
+            return null;
         }
         /// <summary>
         /// 
