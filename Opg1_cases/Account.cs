@@ -77,7 +77,6 @@ namespace Opg1_cases
                 
             }
 
-
             var json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(@"C:\Users\hjalet\Desktop\data.json", json);
 
@@ -94,15 +93,13 @@ namespace Opg1_cases
             return false;
         }
 
-        public void SaveUser(User user) {
+        public void SaveUser(User user) 
+        {
             List<User> users = GetUsersFromFile();
             users.Add(user);
-            /*List<User> list = new List<User>();
-            list.Add(new User("test123", "123"));
-            list.Add(new User("test23456", "1323"));*/
+
             var json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(@"C:\Users\hjalet\Desktop\data.json", json);
-
         }
 
         public bool UserNameExist(User user)

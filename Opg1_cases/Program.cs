@@ -27,6 +27,8 @@ do
 
     Console.WriteLine("Velkommen tilbage " + user.UserName);
     Console.WriteLine("Hvis du ønsker at opdatere dit password, tryk O");
+    Console.WriteLine("Hvis du ønsker at prøve danse programmet, tryk B");
+    Console.WriteLine("Hvis du ønsker at prøve fodbold programmet, tryk A");
     c_key = Console.ReadKey().Key;
 
 } while (c_key != ConsoleKey.A && c_key != ConsoleKey.B && c_key != ConsoleKey.O);
