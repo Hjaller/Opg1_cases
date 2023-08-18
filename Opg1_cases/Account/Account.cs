@@ -19,7 +19,12 @@ namespace Opg1_cases
      */
     internal class Account
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public bool createUser(string username, string pass)
         {
 
@@ -31,7 +36,12 @@ namespace Opg1_cases
             }
             return false;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public bool Login(string username, string pass)
         {
             List<User> users = GetUsersFromFile();
@@ -41,7 +51,12 @@ namespace Opg1_cases
             }
             return false;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public User? GetUser(string username, string pass)
         {
             List<User> users = GetUsersFromFile();
@@ -53,6 +68,11 @@ namespace Opg1_cases
             return null;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public bool PassStrong(User user)
         {
             string pass = user.Password;
@@ -64,7 +84,11 @@ namespace Opg1_cases
             return true;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="newUser"></param>
         public void UpdateUserInFile(User user, User newUser)
         {
             List<User> users = GetUsersFromFile();
@@ -83,7 +107,12 @@ namespace Opg1_cases
             SaveUser(newUser); 
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="newPass"></param>
+        /// <returns></returns>
         public bool PassUsedBefore(User user, string newPass)
         {
             foreach(string k in user.UsedPassword)
@@ -92,7 +121,10 @@ namespace Opg1_cases
             }
             return false;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
         public void SaveUser(User user) 
         {
             List<User> users = GetUsersFromFile();
@@ -101,7 +133,11 @@ namespace Opg1_cases
             var json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(@"C:\Users\hjalet\Desktop\data.json", json);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public bool UserNameExist(User user)
         {
             string path = @"C:\Users\hjalet\Desktop\data.json";
@@ -116,7 +152,10 @@ namespace Opg1_cases
             }
             return false;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<User> GetUsersFromFile()
         {
             string json = File.ReadAllText(@"C:\Users\hjalet\Desktop\data.json");
