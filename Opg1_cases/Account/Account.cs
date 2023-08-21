@@ -76,6 +76,7 @@ namespace Opg1_cases
             if (char.IsDigit(pass[0])) return false;
             if (char.IsDigit(pass[pass.Length-1])) return false;
             if (pass.Contains(" ")) return false;
+            if (!pass.Any(ch => !char.IsLetterOrDigit(ch))) return false;
             if (user.UserName.ToLower() == pass.ToLower()) return false;
             return true;
         }

@@ -10,58 +10,41 @@ namespace Opg1_cases
     {
 
         private const string _goal = "mål";
-        public Football()
-        {
-            return;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="passes"></param>
-        /// <returns></returns>
-        private string HowHappyAreWeAboutThePasses(int passes)
-        {
-            if (passes < 0)
-                return "ERROR - Are your team playing backwords???";
-            else if (passes < 1)
-                return "Shh";
-            else if (passes > 10)
-                return "High five!!!";
-            else
-            {
-                var str = string.Empty;
-
-                for (int i = 0; i < passes; i++) str += "Huh! ";
-
-                return str.TrimEnd();
-            }
-        }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="goal"></param>
         /// <param name="passes"></param>
         /// <returns></returns>
-        public string WeCheerIfGoalOrPasses(string goal, int passes)
-        {
-            if (goal.ToLower() == _goal)
-                return WeCheerIfGoal(goal);
-
-            else
-                return HowHappyAreWeAboutThePasses(passes);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="goal"></param>
-        /// <returns></returns>
-        private string WeCheerIfGoal(string goal)
+        public string GoalOrPasses(string goal, int passes)
         {
             if (goal.ToLower() == _goal)
             {
                 return "Olé olé olé!";
             }
-            return String.Empty;
+            else
+            {
+                if (passes < 0)
+                {
+                    return "Man kan ikke have minus afleveringer";
+                }
+                else if (passes < 1)
+                {
+                    return "Shh";
+                }
+                else if (passes > 10)
+                {
+                    return "High five!!!";
+                }
+
+                else
+                {
+                    var str = "";
+                    for (int i = 0; i < passes; i++) str += "Huh! ";
+                    return str.TrimEnd();
+                }
+
+            }
         }
     }
 }

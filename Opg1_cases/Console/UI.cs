@@ -101,9 +101,11 @@ namespace Opg1_cases
             {
                 Console.Write("Skriv mål, hvis der er mål: ");
                 goal = Console.ReadLine();
-                Console.Write("Skriv hvor mange afleveringer: ");
-                passes = int.Parse(Console.ReadLine());
-                Console.Write(football.WeCheerIfGoalOrPasses(goal, passes));
+                do
+                {
+                    Console.Write("Skriv hvor mange afleveringer: ");
+                } while (!int.TryParse(Console.ReadLine(), out passes));
+                Console.Write(football.GoalOrPasses(goal, passes));
                 Console.Write("\nØnsker du at skrive nye indtastninger, tryk enter.");
                 if (Console.ReadKey().Key == ConsoleKey.Enter)
                 {
